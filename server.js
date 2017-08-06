@@ -6,7 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var article1={
+var articles={ 
+    "article-one":{
     title:"Article One | Vinay Kumar",
     heading:"Article One",
     date:"Aug 6 2017",
@@ -16,6 +17,29 @@ var article1={
              <p>
             War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
             </p>`
+    },
+    "article-two":{
+         title:"Article Two | Vinay Kumar",
+    heading:"Article Two",
+    date:"Aug 6 2017",
+    content:`<p>
+                War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>
+             <p>
+            War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>`
+    },
+    "article-three":{
+         title:"Article Three | Vinay Kumar",
+    heading:"Article Three",
+    date:"Aug 6 2017",
+    content:`<p>
+                War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>
+             <p>
+            War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>`
+    }
 };
 
 function createTemplate(data){
@@ -54,16 +78,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(article1 ));
-});
-
-app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname,'ui','article-two.html'));
-});
-
-app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','article-three.html'));
+app.get('/:articleName',function(req,res){
+    var articleName=res.params.articleName;
+    res.send(createTemplate(articles[articleName] ));
 });
 
 app.get('/ui/style.css', function (req, res) {
