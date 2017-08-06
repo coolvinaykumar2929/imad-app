@@ -5,12 +5,57 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+var article1={
+    title:"Article One | Vinay Kumar",
+    heading:"Article One",
+    date:"Aug 6 2017",
+    content:`<p>
+                War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>
+             <p>
+            War is a terrible evil. It refers to an armed battle between nations. War causes big sufferings to the family members of the people who die during the war.
+            </p>`
+};
+
+function createTemplate(data){
+    title=data.title;
+    heading=data.heading;
+    date=data.date;
+    content=data.content;
+var htmlTemplate=
+    `<html>
+    <head>
+        <title>
+            $(title)
+        </title>
+        <meta name="viewport" width="device-width,initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/ui/style.css">
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href="/">Home</a>
+        </div>
+        <br color="red">
+        <h3>$(heading)</h3>
+        <div>$(date)</div>
+        <div>
+            $(content)
+        </div>
+        </div>
+    </body>
+</html>
+    `;
+    return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','article-one.html'));
+    res.send(createTemplate(article1 ));
 });
 
 app.get('/article-two',function(req,res){
