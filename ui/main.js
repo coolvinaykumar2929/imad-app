@@ -1,3 +1,4 @@
+/*
 console.log('Loaded!');
 var element=document.getElementById("main-txt");
 element.innerHTML="New Value";
@@ -10,4 +11,12 @@ function moveRight(){
 }
 img.onclick=function(){
     var interval=setInterval(moveRight,50);
+};
+*/
+var button=document.getElementById("counter");
+var counter=0;
+button.onClick=function(){
+    counter=counter+1;
+    var span=document.getElementById("count");
+    span.innerHTL=counter.toString();
 };
