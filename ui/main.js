@@ -25,4 +25,6 @@ butt.onclick=function(){
             }
         }
     };
+    request.open('GET',"coolvinaykumar2929.imad.hasura-app.io/counter",true);
+    request.send(null);
 };
