@@ -36,5 +36,23 @@ button.onclick=function(){
 
 var nameInput=documnet.getElementById('name');
 var name=nameInput.value;
+var submit=documnet.getElementById('submit_btn');
+submit.onclick=function(){
+    
+    var names=['name1,','name2','name3'];
+    var list='';
+    for(var i=0;i<names.length;i++){
+        list=list+'<li>'+names[i]+'</li>';
+    }
+    var ul=documnet.getElementById('namelist');
+    ul.innerHTML=list;
+};
+
+
+
+
+
+
+
 
 
