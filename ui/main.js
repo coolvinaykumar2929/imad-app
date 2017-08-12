@@ -24,6 +24,9 @@ butt.onclick=function(){
                 var span=document.getElementById('count');
                 span.innerHTML=counter.toString();
             }
+            else{
+                span.innerHTML="-1";
+            }
         }
     };
     request.send(null);
