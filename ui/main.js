@@ -48,14 +48,6 @@ submit.onclick=function(){
     ul.innerHTML=list;
 };
 
-var names[];
-app.get('/submit-name/:name',function(req,res){
-   var name=req.params.name;
-   names.push(name);
-   //JSON
-   res.send(JSON.stringify(names));
-});
-
 
 
 
