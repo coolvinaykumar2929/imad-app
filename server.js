@@ -5,6 +5,10 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
 
 var articles={ 
     "article-one":{
@@ -79,9 +83,7 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+
 
 var names[];
 app.get('/submit-name/:name',function(req,res){
