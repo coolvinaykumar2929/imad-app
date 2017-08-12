@@ -83,6 +83,15 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var names[];
+app.get('/submit-name/:name',function(req,res){
+   var name=req.params.name;
+   names.push(name);
+   //JSON
+   res.send(JSON.stringify(names));
+});
+
+
 app.get('/:articleName',function(req,res){
     var articleN=req.params.articleName;
     res.send(createTemplate(articles[articleN] ));
@@ -109,13 +118,7 @@ app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
 
-var names[];
-app.get('/submit-name/:name',function(req,res){
-   var name=req.params.name;
-   names.push(name);
-   //JSON
-   res.send(JSON.stringify(names));
-});
+
 
 
 
