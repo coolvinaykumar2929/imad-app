@@ -16,6 +16,7 @@ img.onclick=function(){
 var button=document.getElementById('counter');
 button.onclick=function(){
     var request=new XMLhttpRequest();
+    request.open('GET','http://coolvinaykumar2929.imad.hasura-app.io/counter',true);
     request.onreadyStatechange=function(){
         if(request.readyState===XMLhttpRequest.DONE){
             if(request.status===200){
@@ -28,6 +29,6 @@ button.onclick=function(){
             }
         }
     };
-    request.open('GET','http://coolvinaykumar2929.imad.hasura-app.io/counter',true);
+   
     request.send(null);
 };
